@@ -2,6 +2,11 @@ import io.spring.gradle.IncludeRepoTask
 import trang.RncToXsd
 
 buildscript {
+	   configurations.classpath {
+        resolutionStrategy {
+            force 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.4.1.3373'
+        }
+    }
     dependencies {
         classpath libs.io.spring.javaformat.spring.javaformat.gradle.plugin
         classpath libs.io.spring.nohttp.nohttp.gradle
@@ -16,7 +21,7 @@ buildscript {
 
 plugins {
     alias(libs.plugins.org.gradle.wrapper.upgrade)
-    id "org.sonarqube" version "6.0.1.5171"  // Add SonarQube plugin here
+    id "org.sonarqube" version "4.4.1.3373"  // Add SonarQube plugin here
 }
 
 apply plugin: 'io.spring.nohttp'
